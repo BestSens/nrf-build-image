@@ -1,4 +1,4 @@
-FROM nordicplayground/nrfconnect-sdk:v2.4-branch@sha256:9f7febaa50763f7789d3aceb51ce7351792b42d9c7a1954e50c316c4ed5b3bef
+FROM nordicplayground/nrfconnect-sdk:v2.5-branch
 RUN apt-get -y update && \
 	apt-get -y --no-install-recommends --no-install-suggests install \
 		curl

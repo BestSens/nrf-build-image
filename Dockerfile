@@ -4,6 +4,6 @@ RUN apt-get -y update && \
 		curl
 RUN rm -Rf /var/lib/apt/lists/*
 
-ADD bestsens-SERVER-CA.crt /usr/share/ca-certificates/bestsens
+ADD bestsens-SERVER-CA.crt /usr/share/ca-certificates/bestsens/bestsens-SERVER-CA.crt
 RUN echo "bestsens/bestsens-SERVER-CA.crt" >> /etc/ca-certificates.conf
 RUN update-ca-certificates

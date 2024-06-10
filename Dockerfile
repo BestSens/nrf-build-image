@@ -1,8 +1,10 @@
-FROM nordicplayground/nrfconnect-sdk:v2.4-branch@sha256:9f7febaa50763f7789d3aceb51ce7351792b42d9c7a1954e50c316c4ed5b3bef
+FROM nordicplayground/nrfconnect-sdk:v2.6-branch
 RUN apt-get -y update && \
 	apt-get -y --no-install-recommends --no-install-suggests install \
-		curl xxd
-RUN rm -Rf /var/lib/apt/lists/*
+		curl \
+		dos2unix \
+		xxd
+RUN rm -Rf /var/lib/apt/lists/* && sed -i 's/$@/"$@"/g' /root/entry.sh && dos2unix /root/entry.sh
 
 ADD bestsens-SERVER-CA.crt /usr/share/ca-certificates/bestsens/bestsens-SERVER-CA.crt
 RUN echo "bestsens/bestsens-SERVER-CA.crt" >> /etc/ca-certificates.conf
